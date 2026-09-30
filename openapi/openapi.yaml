@@ -1,0 +1,5 @@
+openapi: 3.1.0
+info:
+  title: replace-me-team-project API
+  version: 0.0.0
+paths: {}

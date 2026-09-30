@@ -1,0 +1,45 @@
+# 套件依賴
+node_modules/
+
+# 建置與測試產物
+.next/
+dist/
+coverage/
+*.tsbuildinfo
+
+# 執行環境變數檔
+**/.env
+**/.env.local
+**/.env.development
+**/.env.test
+**/.env.production
+**/.env.*.local
+**/.env.*
+!**/.env.example
+!**/.env.development.example
+!**/.env.test.example
+!**/.env.production.example
+
+# 日誌與暫存資料
+*.log
+logs/
+tmp/
+temp/
+uploads/
+npm-debug.log*
+
+# 憑證與私鑰
+*.key
+*.pem
+*.p12
+*.pfx
+
+# 編輯器與作業系統產生的檔案
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# 工程師個人的 AI 助理入口
+personal-assistant/entry.md
+personal-assistant/skill-entry.md
