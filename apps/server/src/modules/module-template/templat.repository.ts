@@ -2,7 +2,7 @@ import type {
   CreateTemplateBody,
   TemplateItem,
   UpdateTemplateBody,
-} from "./templat.types.js";
+} from "@/modules/module-template/templat.types.js";
 
 /** 尚未接 DB，先用記憶體模擬 */
 const items: TemplateItem[] = [];

@@ -17,6 +17,7 @@ Encoding: UTF-8
 | 修改 TypeScript 程式或型別（含兩個 App 或共用套件） | `skills/language/typescript/SKILL.md` |
 | 修改 `apps/web` 的 Next.js 應用程式碼、路由、渲染或設定 | `skills/framework/next-js/SKILL.md` |
 | 修改 React 元件、JSX、Hooks、Context 或 React 狀態資料流 | `skills/framework/react/SKILL.md` |
+| 撰寫或修改 Tailwind utility class、Tailwind 樣式 CSS 或相關設定 | `skills/framework/tailwind-css/SKILL.md` |
 | 修改 `apps/server` 的 Node.js 程式、程序行為或套件／模組設定 | `skills/runtime/node-js/SKILL.md` |
 | 修改 Express 路由、Middleware、HTTP request／response 或錯誤處理 | `skills/framework/express/SKILL.md` |
 

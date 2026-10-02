@@ -1,9 +1,9 @@
-import * as repository from "./templat.repository.js";
+import * as repository from "@/modules/module-template/templat.repository.js";
 import type {
   CreateTemplateBody,
   TemplateItem,
   UpdateTemplateBody,
-} from "./templat.types.js";
+} from "@/modules/module-template/templat.types.js";
 
 export async function listItems(): Promise<TemplateItem[]> {
   try {
