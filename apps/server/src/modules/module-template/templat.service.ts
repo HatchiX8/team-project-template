@@ -5,44 +5,60 @@ import type {
   UpdateTemplateBody,
 } from "./templat.types.js";
 
-export class NotFoundError extends Error {
-  constructor() {
-    super("NOT_FOUND");
+export async function listItems(): Promise<TemplateItem[]> {
+  try {
+    const result = await repository.findAll();
+    return result;
+  } catch (error) {
+    throw error;
   }
 }
 
-export async function listItems(): Promise<TemplateItem[]> {
-  return repository.findAll();
-}
-
 export async function getItem(id: string): Promise<TemplateItem> {
-  const item = await repository.findById(id);
-  if (!item) throw new NotFoundError();
-  return item;
+  try {
+    const result = await repository.findById(id);
+    if (!result) throw new Error("not found");
+    return result;
+  } catch (error) {
+    throw error;
+  }
 }
 
 export async function createItem(
   body: CreateTemplateBody,
 ): Promise<TemplateItem> {
-  return repository.create({
-    title: body.title.trim(),
-    description: body.description?.trim() ?? "",
-  });
+  try {
+    const result = await repository.create({
+      title: body.title.trim(),
+      description: body.description?.trim() ?? "",
+    });
+    return result;
+  } catch (error) {
+    throw error;
+  }
 }
 
 export async function updateItem(
   id: string,
   body: UpdateTemplateBody,
 ): Promise<TemplateItem> {
-  const item = await repository.update(id, {
-    title: body.title?.trim(),
-    description: body.description?.trim(),
-  });
-  if (!item) throw new NotFoundError();
-  return item;
+  try {
+    const result = await repository.update(id, {
+      title: body.title?.trim(),
+      description: body.description?.trim(),
+    });
+    if (!result) throw new Error("not found");
+    return result;
+  } catch (error) {
+    throw error;
+  }
 }
 
 export async function deleteItem(id: string): Promise<void> {
-  const removed = await repository.remove(id);
-  if (!removed) throw new NotFoundError();
+  try {
+    const result = await repository.remove(id);
+    if (!result) throw new Error("not found");
+  } catch (error) {
+    throw error;
+  }
 }
