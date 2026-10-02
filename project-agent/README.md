@@ -2,7 +2,9 @@
 
 此資料夾保存團隊共用的專案 Agent 入口與角色規則。
 
-根目錄 `AGENTS.md` 只負責判斷使用者是否明確指定專案角色。指定 `developer` 或 `review` 時，Agent 必須進入本資料夾的 `entry.md`，再載入對應角色規則。
+根目錄 `AGENTS.md` 只負責判斷使用者是否明確指定專案角色。指定 `developer`、`documenter`、`tester` 或 `review` 時，Agent 必須進入本資料夾的 `entry.md`，再載入對應角色規則。
+
+每則訊息只能明確指定一個專案角色。入口驗證並分派角色，不依任務內容或前一則訊息自行選擇角色；分派後由角色規則確認任務權限與所需依據。
 
 ## 目錄結構
 
@@ -16,6 +18,10 @@ project-agent/
 │     └─ SKILL.md
 └─ roles/
    ├─ developer/
+   │  └─ entry.md
+   ├─ documenter/
+   │  └─ entry.md
+   ├─ tester/
    │  └─ entry.md
    └─ review/
       └─ entry.md
@@ -47,6 +53,20 @@ Review：
 ```text
 角色：review
 任務：描述要檢查的範圍。
+```
+
+Documenter：
+
+```text
+角色：documenter
+任務：描述要建立或維護的文件。
+```
+
+Tester：
+
+```text
+角色：tester
+任務：描述要建立、執行或維護的測試。
 ```
 
 正常進入後，Agent 必須先輸出對應角色入口定義的固定提示。若沒有看到提示，工程師應停止後續操作並檢查入口是否正確載入。
