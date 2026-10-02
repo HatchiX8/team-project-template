@@ -11,12 +11,20 @@
     "dev:web": "npm run dev --workspace @replace-me-team-project/web",
     "dev:server": "npm run dev --workspace @replace-me-team-project/server",
     "build": "npm run build --workspaces --if-present",
-    "typecheck": "npm run typecheck --workspaces --if-present"
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "lint": "eslint apps/web apps/server",
+    "lint:fix": "npm run lint -- --fix"
   },
   "engines": {
     "node": ">=20.9.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.39.0",
+    "eslint": "^9.39.0",
+    "eslint-config-next": "16.3.8",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^17.13.0",
+    "typescript-eslint": "^8.71.0",
     "typescript": "^6.0.3"
   }
 }

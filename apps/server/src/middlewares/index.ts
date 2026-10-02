@@ -1,1 +1,1 @@
-export { PUBLIC_ROOT, createModuleUpload } from "./multer/index.js";
+export { PUBLIC_ROOT, createModuleUpload } from "@/middlewares/multer/index.js";

@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 
 import multer from "multer";
 
-import type { CreateModuleUploadOptions } from "./multerType.js";
+import type { CreateModuleUploadOptions } from "@/middlewares/multer/multerType.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 

@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-import * as controller from "./templat.controller.js";
+import * as controller from "@/modules/module-template/templat.controller.js";
 
 const routes = Router();
 

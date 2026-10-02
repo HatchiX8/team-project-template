@@ -2,7 +2,7 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 import express from "express";
 
-import { templateRoutes } from "./modules/index.js";
+import { templateRoutes } from "@/modules/index.js";
 
 export function createApp() {
   const app = express();

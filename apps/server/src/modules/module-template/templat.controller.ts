@@ -1,6 +1,6 @@
 import type { NextFunction, Request, Response } from "express";
 
-import * as service from "./templat.service.js";
+import * as service from "@/modules/module-template/templat.service.js";
 
 export async function list(
   _request: Request,
