@@ -2,9 +2,11 @@
 
 此資料夾保存團隊共用的專案 Agent 入口與角色規則。
 
-根目錄 `AGENTS.md` 負責判斷使用者是否明確指定專案角色，以及是否符合受限的 Developer 任務延續條件。指定 `developer`、`documenter`、`tester` 或 `review`，或符合 Developer 任務延續時，Agent 必須進入本資料夾的 `entry.md`，再載入對應角色規則。
+根目錄 `AGENTS.md` 負責判斷使用者是否明確指定專案角色、是否符合受限的 Developer 任務延續條件，以及是否符合暫行免角色修改範圍。指定 `developer`、`documenter`、`tester` 或 `review`，或符合 Developer 任務延續時，Agent 必須進入本資料夾的 `entry.md`，再載入對應角色規則。
 
 每則訊息只能明確指定一個專案角色。入口驗證並分派角色；僅同一對話、同一任務且仍在已確認範圍內的 Developer 修改可不重複指定。另一項工作、原範圍不明或要修改範圍外模組／共用能力時，須重新指定 `角色：developer` 並確認範圍。其他角色不沿用。
+
+目前若未指定角色與 Skill，且明確要求修改的檔案全部位於根目錄 `docs/` 或 `project-agent/`，可依 `AGENTS.md` 的暫行例外直接修改，不進入本資料夾的角色入口。這不包含根目錄 `AGENTS.md`、程式碼或其他目錄，也不改變 Tester 與 Review 的角色要求；未來改由 Documenter 管理這兩個目錄時，須另行修改根目錄入口。
 
 ## 目錄結構
 

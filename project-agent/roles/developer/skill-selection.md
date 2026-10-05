@@ -23,6 +23,8 @@ Encoding: UTF-8
 
 表內路徑均以 `project-agent/roles/developer/` 為基準。若只改文件、命名或其他不涉及對應技術行為的內容，不因檔案位於某個 App 就強制載入該 App 全部 Skill。若技術 Skill 的通用建議與已核准專案／模組／API 依據衝突，以正式依據及 Developer 角色限制為準；不得用 Skill 補造缺少的正式決策。
 
+所有選定的技術 Skill 讀取完成後、修改前，依 `project-agent/entry.md` 的組合原則檢查其必要步驟與 Developer Workflow、權限、專案限制、正式依據及本次其他必要 Skill 能否同時遵守。不可消解的牴觸依該入口的失敗處理停止，不得只因技術 Skill 較晚載入就覆蓋先前規則；工作中補讀 Skill 時亦同。
+
 選取完成後，若有載入技術 Skill，修改前向使用者列出實際載入的 Skill 名稱，方便核對跨 App 任務是否遺漏；這不是另一套任務流程，也不得冒稱已載入團隊或個人 Skill。例如同時修改 Web 表單與 Server 的 Express API，應合併 frontend、next-js、react、backend、node-js、express、typescript，並依影響讀取相關 API Contract。
 
 工作中發現新的受影響 App、使用端或技術行為時，先返回 `entry.md` 的分流與正式依據檢查，重新取聯集並補讀新增的 Skill，完成前置檢查後才修改新範圍。不得因原先已選 Skill 而忽略擴大的影響。

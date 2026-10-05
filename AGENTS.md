@@ -37,22 +37,32 @@ Encoding: UTF-8
 - 無角色 Skill 只能依各 Skill 明確宣告的邊界執行；不得自行取得 Developer、Documenter、Tester 或 Review 權限。
 - Skill 要求專案角色但使用者未指定時，停止需要該權限的工作並提示應指定的角色。
 
-## 3. 個人助理模式
+## 3. 暫行免角色修改模式
 
-使用者未指定專案角色、不符合 Developer 任務延續或無角色 Skill 模式，且 `personal-assistant/entry.md` 存在時，必須直接以 UTF-8 讀取並遵守該入口。
+使用者本則訊息未指定專案角色、不符合 Developer 任務延續、未指定團隊或個人 Skill，且明確要求修改的檔案**全部**位於 repository 根目錄的 `docs/` 或 `project-agent/` 時，可以不指定角色，直接在使用者要求的範圍內修改。此分流在個人助理模式之前判斷，不進入 `project-agent/entry.md`，也不藉此取得 Developer、Documenter、Tester 或 Review 角色權限。
+
+- `docs/` 與 `project-agent/` 以根目錄下的實際路徑為準；只讀取其他位置以確認關聯，不代表可修改該位置。
+- 修改前確認目標與影響範圍；僅處理本次明確要求的文件或規則，不順手修改程式碼、依賴、執行環境、根目錄 `AGENTS.md` 或其他目錄。
+- 若同一任務還需要修改例外範圍外的檔案，不以此分流執行部分修改；指出範圍外目標並請使用者另行指定對應角色或拆分任務。
+- 本例外不變更正式測試流程需 `角色：tester`、正式檢查變更需 `角色：review` 的既有要求，也不授權執行其他角色的工作流程。
+- 這是暫行安排。未來若決定將 `docs/` 與 `project-agent/` 的修改交由 `documenter` 管理，須另行修改本入口；目前不得提前要求 `角色：documenter` 才能修改這兩個目錄。
+
+明確指定角色時仍優先進入專案角色模式；明確指定 Skill 且不符合 Developer 延續時，仍依上方無角色 Skill 模式及該 Skill 的授權邊界執行，不以本例外繞過 Skill 限制。
+
+## 4. 個人助理模式
+
+使用者未指定專案角色、不符合 Developer 任務延續、無角色 Skill 模式或暫行免角色修改模式，且 `personal-assistant/entry.md` 存在時，必須直接以 UTF-8 讀取並遵守該入口。
 
 - `personal-assistant/entry.md` 是個別工程師的本機設定，不是團隊共用規則。
 - 個人助理模式不得自行取得 Developer、Documenter、Tester 或 Review 的專案權限。
 
-## 4. 一般 Agent 模式
+## 5. 一般 Agent 模式
 
-使用者未指定專案角色、不符合 Developer 任務延續或無角色 Skill 模式，且 `personal-assistant/entry.md` 不存在時，維持目前聊天環境的一般 Agent 行為。
+使用者未指定專案角色、不符合 Developer 任務延續、無角色 Skill 模式或暫行免角色修改模式，且 `personal-assistant/entry.md` 不存在時，維持目前聊天環境的一般 Agent 行為。
 
 - 個人助理入口未設定不視為錯誤。
 - 一般 Agent 模式可以回答問題與進行未改變專案狀態的討論。
-- 使用者明確要求時，可以修改一般說明、參考範本與未核准草案。
-- 修改程式碼、依賴、執行環境或已核准的專案正式依據時，必須請使用者明確指定 `角色：developer`。
-- 建立或維護專案正式文件時，必須請使用者明確指定 `角色：documenter`。
+- 未指定角色時，只有第 3 節明確涵蓋的 `docs/` 與 `project-agent/` 修改可直接執行；其他專案檔案的建立、修改或刪除，須請使用者明確指定 `角色：developer`。
 - 建立、修改或執行正式測試流程時，必須請使用者明確指定 `角色：tester`。
 - 需要正式檢查變更時，必須請使用者明確指定 `角色：review`。
 
