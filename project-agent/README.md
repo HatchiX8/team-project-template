@@ -38,7 +38,9 @@ project-agent/
    ├─ documenter/
    │  └─ entry.md
    ├─ tester/
-   │  └─ entry.md
+   │  ├─ entry.md
+   │  ├─ workflow.md
+   │  └─ output.md
    └─ review/
       ├─ entry.md
       ├─ workflows/
@@ -60,7 +62,9 @@ project-agent/
 
 Developer 已建立按需載入的局部修正與一般開發分流、共用開發流程、條列式設計準則與限制、技術 Skill 選取、修改後驗證及完成／停止時的輸出規則。分流後會提示目前採用的路線；一般開發按任務影響讀取專案、模組與 API 三層正式依據。
 
-Review 目前已建立入口模式判定、固定分流提示與兩模式必讀的 `workflows/common.md`；須明確指定 `模式：feature` 或 `模式：module` 及對應功能／模組，缺漏或不正確時停止。入口先讀共用規則，再讀對應分支。兩分支都依 scope → 技術準則選取 → review → output 執行；`feature` 僅檢查單一功能及直接關聯範圍，`module` 檢查整個指定模組。Reviewer 參考既有 Developer Skills，獨立重查可唯讀觀察的技術準則，不重跑 Developer 修改流程。Documenter 與 Tester 的詳細流程將在後續階段逐步補充。
+Review 目前已建立入口模式判定、固定分流提示與兩模式必讀的 `workflows/common.md`；須明確指定 `模式：feature` 或 `模式：module` 及對應功能／模組，缺漏或不正確時停止。入口先讀共用規則，再讀對應分支。兩分支都依 scope → 技術準則選取 → review → output 執行；`feature` 僅檢查單一功能及直接關聯範圍，`module` 檢查整個指定模組。Reviewer 參考既有 Developer Skills，獨立重查可唯讀觀察的技術準則，不重跑 Developer 修改流程。
+
+Tester 第一版依 entry → workflow → output 處理模組 API 請求測試，涵蓋狀態碼、參數傳輸與錯誤回應。腳本放在 `apps/server/tests/api/<module>/<feature>.test.ts`；使用已核准 API 依據及可用測試環境，缺少必要工具時交 Developer 補齊。Documenter 的詳細流程將在後續階段逐步補充。
 
 ## 使用方式
 
