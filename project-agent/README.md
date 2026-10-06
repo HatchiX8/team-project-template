@@ -36,7 +36,9 @@ project-agent/
    │     ├─ general-development.md
    │     └─ development.md
    ├─ documenter/
-   │  └─ entry.md
+   │  ├─ entry.md
+   │  ├─ workflow.md
+   │  └─ output.md
    ├─ tester/
    │  ├─ entry.md
    │  ├─ workflow.md
@@ -64,7 +66,9 @@ Developer 已建立按需載入的局部修正與一般開發分流、共用開�
 
 Review 目前已建立入口模式判定、固定分流提示與兩模式必讀的 `workflows/common.md`；須明確指定 `模式：feature` 或 `模式：module` 及對應功能／模組，缺漏或不正確時停止。入口先讀共用規則，再讀對應分支。兩分支都依 scope → 技術準則選取 → review → output 執行；`feature` 僅檢查單一功能及直接關聯範圍，`module` 檢查整個指定模組。Reviewer 參考既有 Developer Skills，獨立重查可唯讀觀察的技術準則，不重跑 Developer 修改流程。
 
-Tester 第一版依 entry → workflow → output 處理模組 API 請求測試，涵蓋狀態碼、參數傳輸與錯誤回應。腳本放在 `apps/server/tests/api/<module>/<feature>.test.ts`；使用已核准 API 依據及可用測試環境，缺少必要工具時交 Developer 補齊。Documenter 的詳細流程將在後續階段逐步補充。
+Tester 第一版依 entry → workflow → output 處理模組 API 請求測試，涵蓋狀態碼、參數傳輸與錯誤回應。腳本放在 `apps/server/tests/api/<module>/<feature>.test.ts`；使用已核准 API 依據及可用測試環境，缺少必要工具時交 Developer 補齊。
+
+Documenter 第一版要求明確指定 `模式：write` 或 `模式：review` 及文件對象；write 建立或調整指定文件，review 唯讀檢查矛盾、語意與可執行性。尚無各類文件必要內容範本時，可能遺漏的內容只列補充建議或待確認事項，不判定文件完整性，也不自行核准文件。
 
 ## 使用方式
 
@@ -89,8 +93,11 @@ Documenter：
 
 ```text
 角色：documenter
-任務：描述要建立或維護的文件。
+模式：write
+任務：描述指定文件、用途與要建立或調整的內容。
 ```
+
+文件審查使用 `模式：review` 並提供指定文件；這是 Documenter 的文件審查模式，不啟動 Review 角色的程式碼檢查。
 
 Tester：
 
