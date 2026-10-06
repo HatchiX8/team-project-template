@@ -41,10 +41,11 @@ project-agent/
    │  └─ entry.md
    └─ review/
       ├─ entry.md
-      ├─ severity.md
-      ├─ output.md
-      └─ workflows/
-         └─ review.md
+      ├─ workflows/
+      │  └─ common.md
+      └─ modes/
+         ├─ feature/        # entry、scope、skill-selection、review、output
+         └─ module/         # entry、scope、skill-selection、review、output
 ```
 
 ## 目前階段
@@ -59,7 +60,7 @@ project-agent/
 
 Developer 已建立按需載入的局部修正與一般開發分流、共用開發流程、條列式設計準則與限制、技術 Skill 選取、修改後驗證及完成／停止時的輸出規則。分流後會提示目前採用的路線；一般開發按任務影響讀取專案、模組與 API 三層正式依據。
 
-Review 已建立精簡的只讀檢查流程：進入後先解析檢查範圍（本階段支援 working-tree、paths、docs，可選測試證據）。可對應唯一便利用語時採用該模式；範圍不明或衝突時停止並請明確指定。相對主幹分支 diff 與 PR 檢查留待後續階段。範圍明確後才載入檢查流程與嚴重度規則。不做角色內技術 Skill 樹；領域檢查可搭配使用者指定的團隊或個人 Skill。Documenter 與 Tester 的詳細流程將在後續階段逐步補充。
+Review 目前已建立入口模式判定、固定分流提示與兩模式必讀的 `workflows/common.md`；須明確指定 `模式：feature` 或 `模式：module` 及對應功能／模組，缺漏或不正確時停止。入口先讀共用規則，再讀對應分支。兩分支都依 scope → 技術準則選取 → review → output 執行；`feature` 僅檢查單一功能及直接關聯範圍，`module` 檢查整個指定模組。Reviewer 參考既有 Developer Skills，獨立重查可唯讀觀察的技術準則，不重跑 Developer 修改流程。Documenter 與 Tester 的詳細流程將在後續階段逐步補充。
 
 ## 使用方式
 
@@ -74,10 +75,11 @@ Review：
 
 ```text
 角色：review
-任務：檢查未提交變更。
+模式：feature
+任務：檢查帳號模組的登入功能未提交變更。
 ```
 
-也可指定明確路徑，或文件與實作一致性。只寫「幫我 review」等模糊描述時，Agent 應停止並請使用者明確指定。相對主幹分支 diff 與 PR 檢查尚未納入本階段。
+只寫「幫我 review」或未提供可辨識的功能／模組時，Agent 應停止並請使用者補正。兩種模式均依已核准正式依據與現有實作執行只讀檢查；`feature` 的結論不代表整個模組通過。
 
 Documenter：
 

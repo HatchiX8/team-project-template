@@ -6,8 +6,8 @@ Encoding: UTF-8
 
 ## 選取方式
 
-1. 依任務、預計修改的位置及相關使用端，確認本次涉及的 App、共用套件與技術行為。跨 Web／Server 時取所有受影響範圍的聯集；同一 Skill 只讀一次。不得只因依賴列在 `package.json` 就載入所有 Skill。
-2. 以 `docs/project/` 中與任務相關的已核准技術選型為正式依據，並以受影響 workspace 的 `package.json`、設定與原始碼核對實際技術。`package.json` 的精確版本不另抄入路由表。技術資料若互相矛盾且會改變 Skill 選取或實作方式，依 `entry.md` 停止並回報；不得靜默擇一。
+1. 依任務、預計修改的位置及相關使用端，確認本次涉及的 App、共用套件、根目錄工具與技術行為。跨 Web／Server 時取所有受影響範圍的聯集；同一 Skill 只讀一次。不得只因依賴列在 `package.json` 就載入所有 Skill。
+2. 以 `docs/project/` 中與任務相關的已核准技術選型為正式依據，並以受影響 workspace 或根目錄的 `package.json`、設定與原始碼核對實際技術。`package.json` 的精確版本不另抄入路由表。技術資料若互相矛盾且會改變 Skill 選取或實作方式，依 `entry.md` 停止並回報；不得靜默擇一。
 3. 對下表每個符合的條件，於修改前以 UTF-8 讀取對應 `SKILL.md`。表中只登記目前存在的 Developer 技術 Skill，不是專案技術清單；未列出的技術不得猜測 Skill 路徑或借用其他角色規則。已選 Skill 缺失或無法讀取時，依 `entry.md` 停止。沒有符合條件的技術 Skill 時，依角色規則與正式依據工作，不為湊數載入。
 
 | 條件 | Developer 技術 Skill |
@@ -18,7 +18,7 @@ Encoding: UTF-8
 | 修改 `apps/web` 的 Next.js 應用程式碼、路由、渲染或設定 | `skills/framework/next-js/SKILL.md` |
 | 修改 React 元件、JSX、Hooks、Context 或 React 狀態資料流 | `skills/framework/react/SKILL.md` |
 | 撰寫或修改 Tailwind utility class、Tailwind 樣式 CSS 或相關設定 | `skills/framework/tailwind-css/SKILL.md` |
-| 修改 `apps/server` 的 Node.js 程式、程序行為或套件／模組設定 | `skills/runtime/node-js/SKILL.md` |
+| 修改 Node.js 程式、程序行為、套件／模組設定或建置工具鏈（含根目錄工具、Web、Server 與共用套件中實際涉及的部分） | `skills/runtime/node-js/SKILL.md` |
 | 修改 Express 路由、Middleware、HTTP request／response 或錯誤處理 | `skills/framework/express/SKILL.md` |
 
 表內路徑均以 `project-agent/roles/developer/` 為基準。若只改文件、命名或其他不涉及對應技術行為的內容，不因檔案位於某個 App 就強制載入該 App 全部 Skill。若技術 Skill 的通用建議與已核准專案／模組／API 依據衝突，以正式依據及 Developer 角色限制為準；不得用 Skill 補造缺少的正式決策。
