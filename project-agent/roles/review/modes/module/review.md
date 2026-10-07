@@ -2,7 +2,9 @@
 
 Encoding: UTF-8
 
-只檢查 `scope.md` 已確認的模組及直接關聯範圍。每個發現都須符合 `workflows/common.md` 的證據規則。
+只檢查 `scope.md` 已確認的模組及直接關聯範圍。
+
+每個發現都須符合 `workflows/common.md` 的證據規則。
 
 ## 核心檢查
 
