@@ -22,6 +22,12 @@ npm run dev
 - `npm run typecheck`：檢查所有 workspace 的 TypeScript 型別。
 - `npm run build`：建置所有 workspace。
 
+## Git 協作
+
+分支、Commit 訊息、Pull Request 與合併方式引用[團隊 Git 協作規範](../standards/git-workflow.md#git-分支與提交規則)，本文件不重複定義。
+
+本專案 PR 的測試結果依[測試規範](./testing.md)附在 PR 說明。
+
 ## 開發流程
 
 TODO：說明從需求、文件核准、實作到 Review 的完整標準流程。
