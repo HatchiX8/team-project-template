@@ -26,7 +26,10 @@ Encoding: UTF-8
   - `模式：write`：建立或調整指定文件，須說明文件用途與本次要整理的內容。
   - `模式：review`：唯讀審查指定文件，指出矛盾、語意不清或不足以支援指定用途的描述。
 - 缺少模式、同時指定兩種、值不是 `write` 或 `review`，或文件對象不足以定位時，指出缺漏並停止；不得自行猜測模式。
-- 開始文件工作前，以 UTF-8 讀取 `project-agent/roles/documenter/workflow.md` 與 `project-agent/roles/documenter/output.md`，確認與入口及已載入 Skill 沒有不可消解的牴觸。
+- 開始文件工作前，以 UTF-8 讀取以下兩模式共用規則，確認與入口及已載入 Skill 沒有不可消解的牴觸：
+  - `project-agent/roles/documenter/workflow.md`
+  - `project-agent/roles/documenter/writing-guidelines.md`
+  - `project-agent/roles/documenter/output.md`
 - 必要規則不存在、無法讀取、仍是 TODO 或互相牴觸時，指出實際路徑、原因與下一步後停止，不略過規則。
 - 規則成功讀取且模式與對象確認後，輸出對應提示，替換文件對象：
 
