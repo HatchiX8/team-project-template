@@ -26,7 +26,11 @@ project-agent/
 ├─ entry.md
 ├─ skill-entry.md
 ├─ skills/
-│  └─ api-contract/
+│  ├─ api-contract/
+│  │  └─ SKILL.md
+│  ├─ document-decisions/
+│  │  └─ SKILL.md
+│  └─ requirement-analysis/
 │     └─ SKILL.md
 └─ roles/
    ├─ developer/
@@ -48,6 +52,7 @@ project-agent/
    ├─ documenter/
    │  ├─ entry.md
    │  ├─ workflow.md
+   │  ├─ writing-guidelines.md
    │  └─ output.md
    ├─ tester/
    │  ├─ entry.md
@@ -88,7 +93,9 @@ Tester 第一版依 entry → workflow → output 處理模組 API 請求測試�
 
 腳本放在 `apps/server/tests/api/<module>/<feature>.test.ts`；使用已核准 API 依據及可用測試環境，缺少必要工具時交 Developer 補齊。
 
-Documenter 第一版要求明確指定 `模式：write` 或 `模式：review` 及文件對象；write 建立或調整指定文件，review 唯讀檢查矛盾、語意與可執行性。
+Documenter 採單一文件工作流程。依任務與明確指定的 Skill 確認文件對象、用途及修改授權；未指定修訂 Skill 且只要求分析或檢查時維持唯讀。明確指定 `document-decisions` 時依該 Skill 的預設流程工作，使用者明確的唯讀限制優先。
+
+角色保留來源判定、寫作準則、基本核對與交付；需深入檢查規則衝突、流程盲點或逐題決策時，可搭配 `document-decisions` Skill。
 
 尚無各類文件必要內容範本時，可能遺漏的內容只列補充建議或待確認事項，不判定文件完整性，也不自行核准文件。
 
@@ -117,11 +124,18 @@ Documenter：
 
 ```text
 角色：documenter
-模式：write
 任務：描述指定文件、用途與要建立或調整的內容。
 ```
 
-文件審查使用 `模式：review` 並提供指定文件；這是 Documenter 的文件審查模式，不啟動 Review 角色的程式碼檢查。
+只需檢查時，將任務寫成「分析指定文件，不修改」。需分析、逐題決策後修訂時，可使用：
+
+```text
+角色：documenter
+團隊 Skills：document-decisions
+文件：docs/modules/lineAuth
+```
+
+Documenter 的文件檢查不啟動 Review 角色的程式碼檢查；Review 角色仍使用上方的 feature／module 模式。
 
 Tester：
 
@@ -139,6 +153,19 @@ Tester：
 僅為確認影響而讀取其他模組不需要重新指定。
 
 ## 搭配 Skill
+
+完整建立新模組前，可先單獨使用 `團隊 Skills：requirement-analysis` 並指定模組與 API 文件範圍。Skill 唯讀分析、逐題確認必要決策，最後在聊天室交付通用工作包，不另建檔或直接實作。後續由使用者指定 Developer，直接引用工作包開發；額外 Skill 由使用者依需要選用，不是必要條件。接手時沿用有效結論，仍須確認正式依據與核准狀態。
+
+單獨使用需求分析 Skill，不需指定角色：
+
+```text
+團隊 Skills：requirement-analysis
+任務：評估完整建立指定模組，完成必要決策後在聊天室整理工作包。
+模組文件：docs/modules/<module>/
+API 文件：docs/api-contracts/<module>/
+```
+
+角色搭配團隊與個人 Skill 的範例：
 
 ```text
 角色：developer
